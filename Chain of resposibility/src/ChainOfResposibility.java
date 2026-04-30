@@ -9,6 +9,9 @@ class Pedido {
     public void setValor(double valor) {
         this.valor = valor;
     }
+    public double getValor(){
+        return this.valor;
+    }
     public void aprovar() {
         this.aprovado = true;
     }
@@ -21,6 +24,6 @@ class Pedido {
 
 public class ChainOfResposibility{
     public static void main(String[] args){
-
+        
     }
 }
