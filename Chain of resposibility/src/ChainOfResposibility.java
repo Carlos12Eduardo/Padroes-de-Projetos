@@ -47,10 +47,22 @@ class Vendedor extends PedidoHandler{
     }
 }
 
+class Gerente extends PedidoHandler{
+    public Pedido handle(Pedido p){
+        if(p.getValor() < 10000){
+            System.out.println("O Gerente aprovou o pedido de: R$"+p.getValor());
+            p.aprovar();
+            return p;
+        }
+        return super.handle(p);
+    }
+}
 public class ChainOfResposibility{
     public static void main(String[] args){
-        Pedido p1 = new Pedido(500);
+        Pedido p1 = new Pedido(2000);
+        Gerente g1 = new Gerente();
         Vendedor v1 = new Vendedor();
+        v1.setNextHandler(g1);
         v1.handle(p1);
         System.out.println("total do pedido p: "+ p1.getValor());
 
