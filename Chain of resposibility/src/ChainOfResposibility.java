@@ -21,9 +21,25 @@ class Pedido {
     
 }
 
+abstract class PedidoHandler{
+    protected PedidoHandler nextHandler = null;
+
+    public PedidoHandler setNextHandler(PedidoHandler ph){
+        this.nextHandler = ph;
+        return ph;
+    }
+    public Pedido handle(Pedido p){
+        if (this.nextHandler != null) {
+            return this.nextHandler.handle(p);
+        }
+        return p;
+    }
+}
+
 
 public class ChainOfResposibility{
     public static void main(String[] args){
-        
+        Pedido p1 = new Pedido(500);
+        System.out.println("total do pedido p: "+ p1.getValor());
     }
 }
