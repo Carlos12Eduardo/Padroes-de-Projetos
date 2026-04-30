@@ -36,10 +36,23 @@ abstract class PedidoHandler{
     }
 }
 
+class Vendedor extends PedidoHandler{
+    public Pedido handle(Pedido p){
+        if(p.getValor() < 1000){
+            System.out.println("O vendedor aprovou o pedido de: R$"+p.getValor());
+            p.aprovar();
+            return p;
+        }
+        return super.handle(p);
+    }
+}
 
 public class ChainOfResposibility{
     public static void main(String[] args){
         Pedido p1 = new Pedido(500);
+        Vendedor v1 = new Vendedor();
+        v1.handle(p1);
         System.out.println("total do pedido p: "+ p1.getValor());
+
     }
 }
