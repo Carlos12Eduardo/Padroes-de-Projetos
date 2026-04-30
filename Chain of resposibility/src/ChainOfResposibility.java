@@ -57,12 +57,27 @@ class Gerente extends PedidoHandler{
         return super.handle(p);
     }
 }
+
+class Diretor extends PedidoHandler{
+    public Pedido handle(Pedido p){
+        if(p.getValor() < 50000){
+            System.out.println("O Diretor aprovou o pedido de: R$"+p.getValor());
+            p.aprovar();
+            return p;
+        }
+        return super.handle(p);
+    }
+}
 public class ChainOfResposibility{
     public static void main(String[] args){
-        Pedido p1 = new Pedido(2000);
+        Pedido p1 = new Pedido(15000);
+        Diretor d1 = new Diretor();
         Gerente g1 = new Gerente();
         Vendedor v1 = new Vendedor();
-        v1.setNextHandler(g1);
+        v1
+        .setNextHandler(g1)
+        .setNextHandler(d1);
+        
         v1.handle(p1);
         System.out.println("total do pedido p: "+ p1.getValor());
 
