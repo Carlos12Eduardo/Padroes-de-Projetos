@@ -8,5 +8,10 @@ public class Main {
         a.cursarAluno();
         a.matricularAluno();
         a.getMatricula();
+        a.trancarAluno();
+        a.analisarAluno();
+        a.getMatricula();
+        a.matricularAluno();
+        a.habilitarAluno();
     }
 }
