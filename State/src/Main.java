@@ -5,9 +5,8 @@ public class Main {
         a.habilitarAluno();
         a.getMatricula();
         a.matricularAluno();
-        a.cancelarAluno();
-        a.desabilitarAluno();
-        a.trancarAluno();
+        a.cursarAluno();
+        a.matricularAluno();
         a.getMatricula();
     }
 }
