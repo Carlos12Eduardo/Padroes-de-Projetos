@@ -4,7 +4,7 @@ public class EmAnalise extends MatriculaState{
     }
     @Override
     public MatriculaState habilitar() {
-        System.out.println("Matrícula hablitada com sucesso.");
+        System.out.println("Matrícula habilitada com sucesso.");
         return new Habilitado();
     }
 
