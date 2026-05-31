@@ -14,7 +14,13 @@ public class Matriculado extends MatriculaState {
     }
 
     public MatriculaState trancar() {
-        System.out.println("Matriculad trancada com sucesso.");
+        System.out.println("Matricula trancada com sucesso.");
         return new Trancado();
+    }
+
+    @Override
+    public MatriculaState cursar() {
+        System.out.println("Matricula atualizada para cursando.");
+        return new Cursando();
     }
 }
